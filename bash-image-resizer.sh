@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #-----------------------------------------------------------------------
-#  AUTOR	: Jean-Francois GAZET
+#  AUTHOR	: Jean-Francois GAZET
 #  WEB 		: http://www.jeffprod.com
 #  TWITTER	: @JeffProd
 #  MAIL		: jeffgazet@gmail.com
