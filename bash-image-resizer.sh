@@ -19,7 +19,7 @@ function redim_image()
 	ext=$3; # file extention (jpg,GIF,png...)
 
 	# changine working directory
-	cd ${workingDir}; 
+	cd "$workingDir";
 
 	# number of files with given extension
 	shopt -s nullglob
@@ -35,12 +35,12 @@ function redim_image()
 		for file in *.$ext; do
 
 			# we want i.e. 800(w)600(h) and 600(w)800(h) to have the same final size
-			width=`identify -format "%w" $file`;
-			height=`identify -format "%h" $file`;
+			width=`identify -format "%w" "$file"`;
+			height=`identify -format "%h" "$file"`;
 			if [[ $width < $height ]]; then newImageSize="x${imageSize}"; else newImageSize="${imageSize}x"; fi;
 
 			# let's convert it to requested sized, renamed to "rezise-filename"
-			convert $file -resize $newImageSize -quality 95 resize-$file;
+			convert "$file" -resize $newImageSize -quality 95 "resize-$file";
 
 			r=$(echo "($cpt/$numfiles)*100" | bc -l) # % working progress with decimals
 			r=${r/\.*} # int cast
@@ -83,13 +83,13 @@ IFS='|' read -a array <<< "$format";
 format="${array[0]}"; # 640
 
 # Let's do the job for each type of image in the directory, case sensitive
-redim_image $dir $format "JPG";
-redim_image $dir $format "jpg";
-redim_image $dir $format "GIF";
-redim_image $dir $format "gif";
-redim_image $dir $format "JPEG";
-redim_image $dir $format "jpeg";
-redim_image $dir $format "PNG";
-redim_image $dir $format "png";
+redim_image "$dir" $format "JPG";
+redim_image "$dir" $format "jpg";
+redim_image "$dir" $format "GIF";
+redim_image "$dir" $format "gif";
+redim_image "$dir" $format "JPEG";
+redim_image "$dir" $format "jpeg";
+redim_image "$dir" $format "PNG";
+redim_image "$dir" $format "png";
 
 exit 0
