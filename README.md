@@ -14,4 +14,4 @@ chmod +x ./bash-image-resizer.sh
 ./bash-image-resizer.sh
 ```
 
-See http://fr.jeffprod.com/blog/2014/redimensionner-des-images-par-lot.html (french)
+See https://fr.jeffprod.com/blog/2014/redimensionner-des-images-par-lot/ (french)
